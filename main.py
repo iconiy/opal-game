@@ -12,6 +12,8 @@ while running:
 
     screen.fill(('purple'))
 
+    pygame.draw.circle(screen, 'red', (200, 200), 10)
+
     pygame.display.flip()
 
     clock.tick(60)
