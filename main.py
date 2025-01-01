@@ -8,6 +8,16 @@ dt = 0.0
 
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
+bullets = []
+
+def bullet():
+    circle = pygame.draw.circle(screen, 'green', (player_pos.x + 30, player_pos.y), 20)
+    return circle
+
+def move_bullet():
+    circle = bullet()
+    circle.x = player_pos.x - 50
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -26,6 +36,10 @@ while running:
         player_pos.x -= 300 * dt
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
+
+    if keys[pygame.K_SPACE]:
+        bullet()
+        move_bullet()
 
     if player_pos.y > screen.get_height():
         player_pos.y = screen.get_height()
